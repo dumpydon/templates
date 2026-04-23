@@ -1,8 +1,8 @@
 
 #-----------------------------------------------------------------------------
 #PRIME SIEVE TEMPLATE
-
-        N= 5*10**6      #❇️    #N is the range till you wat sieve to be 
+        #N is the range till you want sieve to be 
+        N= 5*10**6      #❇️ 5 * 10**6 is very big    cant go 10**7 in python  
 
         prime = [True]*(N+1) #❇️ 
         #-----------------------------------------------
