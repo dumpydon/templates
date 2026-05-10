@@ -42,6 +42,10 @@ def left_rotate(nums, k):
     k %= n
     return nums[k:] + nums[:k]
 
+    #🎃⭐️🔴🟢=================================================
+    ROT = k%len(temp) #for handling large k #USE A DIFFERENT VARIABLE DONT TEMPER THE QUESTION VARIABLE k use rot 
+    temp = temp[ROT:] +temp[:ROT]
+#===========================================================
 
 #==================================================================================
 # 3️⃣ INDEX MAPPING (VERY IMPORTANT 🔥)
