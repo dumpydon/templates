@@ -5,35 +5,45 @@
         isprime = [True]*(N+1) #initillytinking all are prime
         isprime[0] = isprime[1] = False
     #-------------------------------------------
+        for p in range(2, int(N**0.5) + 1): #FASTER
+            if isprime[p]:
+                for i in range(p*p, N+1, p):
+                    isprime[i] = False
+                    
+    #-------------------------------------------------------
         p = 2
         while p*p<=N:
             if isprime[p]:
                 for i in range(p*p, N+1, p):
                     isprime[i] = False
             p+=1
-    #-------------------------------------------------------
-        # for p in range(2, int(N**0.5) + 1): #FASTER
-            # if isprime[p]:
-            #     for i in range(p*p, N+1, p):
-            #         isprime[i] = False
             
 #===================================================================
+
+
 
 
 #----------------------------------------------------------------------------
     #THIS TEMPLATE NOT NEEDED AS THIS WILL FILL UP A LOT OF TABLE SHIT
     #------------------------------------------
-        # N = max(res)
+        N = max(res)
 
-        # isprime = [True]*(N+1)
-        # isprime[0], isprime[1] = False, False
+        isprime = [True]*(N+1)
+        isprime[0], isprime[1] = False, False
 
-        # for p in range(2, int(N**0.5)+1):
-        #     if isprime[p]:
-        #         for i in range(p*p, N, p):
-        #             isprime[i]= False
+        for p in range(2, int(N**0.5)+1):
+            if isprime[p]:
+                for i in range(p*p, N, p):
+                    isprime[i]= False
     #------------------------------------------
-    #dp based template for prime sieve fastere
+
+#--------------------------------------------------
+
+
+
+
+#------------------------------------------
+#memoized primality testing
         @cache
         def isprime(x):
             if x < 2: return False
@@ -43,7 +53,11 @@
                 if x%d==0: return False
                 d += 1
             return True
-    #------------------------------------------
+    #dp based template for prime sieve fastere
+    #1)very FEW numbers 
+    #2)numbers HUGE 
+    #3)many DUPLICATES
+#--------------------------------------------------
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
