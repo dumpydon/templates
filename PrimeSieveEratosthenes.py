@@ -20,6 +20,32 @@
 #===================================================================
 
 
+#----------------------------------------------------------------------------
+    #THIS TEMPLATE NOT NEEDED AS THIS WILL FILL UP A LOT OF TABLE SHIT
+    #------------------------------------------
+        # N = max(res)
+
+        # isprime = [True]*(N+1)
+        # isprime[0], isprime[1] = False, False
+
+        # for p in range(2, int(N**0.5)+1):
+        #     if isprime[p]:
+        #         for i in range(p*p, N, p):
+        #             isprime[i]= False
+    #------------------------------------------
+    #dp based template for prime sieve fastere
+        @cache
+        def isprime(x):
+            if x < 2: return False
+
+            d = 2
+            while d*d <= x:
+                if x%d==0: return False
+                d += 1
+            return True
+    #------------------------------------------
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -32,7 +58,7 @@
         #N is the range till you want sieve to be 
 def sieve(N):
         
-    N = 5* 10**16     #or  max(arr 
+    N = 5* 10**6     #or  max(arr 
     prime = [True]*(N+1)
     prime[0] = prime[1] = False
 
