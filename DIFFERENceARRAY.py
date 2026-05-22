@@ -11,11 +11,19 @@
     
     #-----------------------------------
     #CUMMULATING DIFFERENCE ARRAY WE MADE
-    res= []
-    curr = 0 
-    for delta in diff:
-        curr += delta
-        res.append(curr)
+
+    for i in range(1,n):
+        diff[i] += diff[i-1]
+    # print(diff) #= [0, 1, 2]
+    #-----------------------------------
+
+
+
+    # res= []
+    # curr = 0 
+    # for delta in diff:
+    #     curr += delta
+    #     res.append(curr)
     # print(res) #= [0, 1, 2]
     #-----------------------------------
 
