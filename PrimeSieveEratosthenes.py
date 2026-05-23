@@ -1,71 +1,75 @@
+# 🎃PRIME🎃SIEVE🎃TEMPLATE🎃
 
 #===================================================================
     #PRIME SIEVE TEMPLAATE--------------
-        N = n     # 10**5 works, but beyond this is too much 
+        N = n #/ max(arr)    # 10**5 works, but beyond this is too much 
         isprime = [True]*(N+1) #initillytinking all are prime
         isprime[0] = isprime[1] = False
-    #-------------------------------------------
+
         for p in range(2, int(N**0.5) + 1): #FASTER
             if isprime[p]:
                 for i in range(p*p, N+1, p):
                     isprime[i] = False
                     
+    #-------------------------------------------
     #-------------------------------------------------------
-        p = 2
-        while p*p<=N:
-            if isprime[p]:
-                for i in range(p*p, N+1, p):
-                    isprime[i] = False
-            p+=1
+        # p = 2
+        # while p*p<=N:
+        #     if isprime[p]:
+        #         for i in range(p*p, N+1, p):
+        #             isprime[i] = False
+        #     p+=1
             
 #===================================================================
 
 
 
 
-#----------------------------------------------------------------------------
-    #THIS TEMPLATE NOT NEEDED AS THIS WILL FILL UP A LOT OF TABLE SHIT
-    #------------------------------------------
-        N = max(res)
 
-        isprime = [True]*(N+1)
-        isprime[0], isprime[1] = False, False
 
-        for p in range(2, int(N**0.5)+1):
-            if isprime[p]:
-                for i in range(p*p, N, p):
-                    isprime[i]= False
-    #------------------------------------------
 
+#===============================================================================
+#WHEN n <= 1000
 #--------------------------------------------------
+def isprime(n):
+    for d in range(2, int(n**0.5)+1):
+        if n%d==0:
+            return False
+    return True
 
+#sqrt(1000)=31      #SUPER okay ✔
+#===============================================================================
+
+
+
+
+    
 
 
 
 #------------------------------------------
 #memoized primality testing
+    # dp-based template for prime sieve faster
+    #1)very FEW numbers 
+    #2)numbers HUGE 
+    #3)many DUPLICATES
         @cache
         def isprime(x):
             if x < 2: return False
-
             d = 2
             while d*d <= x:
                 if x%d==0: return False
                 d += 1
             return True
-    #dp based template for prime sieve fastere
-    #1)very FEW numbers 
-    #2)numbers HUGE 
-    #3)many DUPLICATES
 #--------------------------------------------------
 
 
+
+
+
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 # Prime 🪜 SIEVE Template
 #-----------------------------------------------------------------------------
 #PRIME SIEVE TEMPLATE
