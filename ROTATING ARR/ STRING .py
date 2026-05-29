@@ -24,16 +24,6 @@
 #==================================================================================
 
 #--------------------------------------------------
-# RIGHT ROTATE
-#--------------------------------------------------
-# Example: [1,2,3,4,5], k=2 → [4,5,1,2,3]
-def right_rotate(nums, k):
-    n = len(nums)
-    k %= n
-    return nums[-k:] + nums[:-k]
-
-
-#--------------------------------------------------
 # LEFT ROTATE
 #--------------------------------------------------
 # Example: [1,2,3,4,5], k=2 → [3,4,5,1,2]
@@ -46,6 +36,17 @@ def left_rotate(nums, k):
     ROT = k%len(temp) #for handling large k #USE A DIFFERENT VARIABLE DONT TEMPER THE QUESTION VARIABLE k use rot 
     temp = temp[ROT:] +temp[:ROT]
 #===========================================================
+
+#--------------------------------------------------
+# RIGHT ROTATE
+#--------------------------------------------------
+# Example: [1,2,3,4,5], k=2 → [4,5,1,2,3]
+def right_rotate(nums, k):
+    n = len(nums)
+    k %= n
+    return nums[-k:] + nums[:-k]
+
+
 
 #==================================================================================
 # 3️⃣ INDEX MAPPING (VERY IMPORTANT 🔥)
@@ -103,29 +104,33 @@ def left_rotate(nums, k):
 #==================================================================================
 # 7️⃣ REVERSE TRICK (O(1) SPACE) 🔥🔥
 #==================================================================================
-
-#--------------------------------------------------
-# RIGHT ROTATE by k
-#--------------------------------------------------
-def right_rotate_inplace(nums, k):
-    n = len(nums)
-    k %= n
-
-    nums.reverse()           # reverse whole
-    nums[:k] = reversed(nums[:k])   # reverse first k
-    nums[k:] = reversed(nums[k:])   # reverse rest
-
-
-#--------------------------------------------------
-# LEFT ROTATE by k
-#--------------------------------------------------
+#===============================================================================
+# LEFT ROTATE BY k
+# temp = temp[k:] +temp[:k]
 def left_rotate_inplace(nums, k):
     n = len(nums)
     k %= n
+    nums[:k] = reversed(nums[:k])
+    nums[k:] = reversed(nums[k:])
 
-    nums.reverse()                # reverse whole
-    nums[n-k:] = reversed(nums[n-k:])  # reverse last k
-    nums[:n-k] = reversed(nums[:n-k])  # reverse rest
+    nums.reverse()
+
+
+#===============================================================================
+# RIGHT ROTATE BY k
+# ===============================================================================
+    # temp = temp[-k:] +temp[:-k]
+def right_rotate_inplace(nums, k):
+    n = len(nums)
+
+    k %= n
+    nums[:n-k] = reversed(nums[:n-k])
+    nums[n-k:] = reversed(nums[n-k:])
+
+    nums.reverse()
+
+
+
 
 
 #==================================================================================
