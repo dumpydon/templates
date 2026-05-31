@@ -3,10 +3,12 @@
 
 
 #======================================================================================
-#1 DUTCH NATIONAL FLAG  ALGORITHM
+#1 DUTCH NATIONAL FLAG  ALGORITHM  🟥 ⬜️ 🟦
 #======================================================================================
-        #this is a dutch national flag thing     
-# see leetcode 75 soert colors https://leetcode.com/problems/sort-colors/submissions/1895885650
+        #this is a Dutch national flag thing   # see leetcode 75 sort colors 
+        # https://leetcode.com/problems/sort-colors/submissions/1895885650
+#------------------------------------------------------------------------------------
+
         low = 0
         mid = 0
         high = len(nums) - 1
