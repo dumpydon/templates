@@ -1,5 +1,20 @@
 #ARRAYS ALGORITHMS
 
+# TWO SMALLEST MINIMUMS---------------------------------in sinlge pass 
+mia = 10**14 # smallest
+mib = 10**14 
+
+for el in nums:
+    if el <=mia:
+        mib = mia
+        mia = el
+    elif mia < el < mib:
+        mib = el
+
+print(f"{mia=}, {mib=}")
+nums.sort()
+mia = nums[0]
+mib = nums[1]
 
 
 #======================================================================================
