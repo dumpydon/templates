@@ -1,3 +1,13 @@
+"""
+See LeetCode 1314 Submission Matrix Blocks from Using the 2D Prefix Grid Matrix Approach 
+You can also have a look at LeetCode 304 in some query immutable. 
+Define get rectangle query. 
+https://leetcode.com/problems/matrix-block-sum/description/
+https://leetcode.com/problems/matrix-block-sum/solutions/8439492/2d-prefixgrid-00-firstrow-firstcol-inner-vmtf
+"""
+
+
+
 def getPREFIX2D( grid: List[List[int]]) -> List[List[int]]:
 	n = len(grid)
 	m = len(grid[0])
@@ -80,7 +90,18 @@ def getPREFIX2D( grid: List[List[int]]) -> List[List[int]]:
 
 	
 	
+def getquery(pref, r1, c1, r2, c2):
+
+	tot = pref[r2][c2]
+
+	if r1 > 0:
+		tot -= pref[r1-1][c2]
+	if c1 > 0:
+		tot -= pref[r2][c1-1]
+	if r1 > 0 and c1 > 0:
+		tot += pref[r1-1][c1-1]
+
+	return tot
 	
-	
-	
-	
+		
+		
